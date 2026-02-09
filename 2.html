@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio | Développeur Frontend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="portfolio.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#06b6d4', secondary: '#8b5cf6', dark: '#0f172a', darker: '#020617', card: '#1e293b' },
+                    animation: { 'float': 'float 6s ease-in-out infinite' },
+                    keyframes: { float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } } }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #020617; color: #f8fafc; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 4px; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        #hero-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.4; }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed w-full z-50 bg-darker/80 backdrop-blur-md border-b border-slate-800 transition-all" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+            <a href="#" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">&lt;Dev/&gt;</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="#accueil" class="hover:text-primary px-3 py-2 text-sm font-medium">Accueil</a>
+                <a href="#apropos" class="hover:text-primary px-3 py-2 text-sm font-medium">À propos</a>
+                <a href="#formation" class="hover:text-primary px-3 py-2 text-sm font-medium">Formation</a>
+                <a href="#projets" class="hover:text-primary px-3 py-2 text-sm font-medium">Projets</a>
+                <a href="#contact" class="bg-primary hover:bg-cyan-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-transform hover:scale-105">Contact</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400"><i class="fas fa-bars text-xl"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-slate-700 p-4 space-y-2">
+            <a href="#accueil" class="block hover:text-white">Accueil</a>
+            <a href="#apropos" class="block hover:text-white">À propos</a>
+            <a href="#formation" class="block hover:text-white">Formation</a>
+            <a href="#projets" class="block hover:text-white">Projets</a>
+            <a href="#contact" class="block text-primary">Contact</a>
+        </div>
+    </nav>
+
+    <section id="accueil" class="relative h-screen flex items-center justify-center pt-16">
+        <canvas id="hero-canvas"></canvas>
+        <div class="relative z-10 text-center px-4">
+            <p class="text-primary font-semibold uppercase mb-4 reveal">Bonjour, je m'appelle Mouhamadou Kane</p>
+            <h1 class="text-4xl sm:text-6xl font-extrabold mb-6 reveal delay-100">Je suis <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Développeur Frontend</span></h1>
+            <p class="max-w-2xl mx-auto text-xl text-slate-400 reveal delay-200">Passionné par la création d'interfaces modernes et performantes.</p>
+            <div class="mt-10 flex justify-center gap-4 reveal delay-300">
+                <a href="#projets" class="px-8 py-3 rounded-full bg-primary hover:bg-cyan-600 transition-all shadow-[0_0_20px_rgba(6,182,212,0.5)]">Projets</a>
+                <a href="#contact" class="px-8 py-3 rounded-full border border-slate-600 hover:bg-slate-800 transition-all">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos" class="py-20 bg-darker">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.CnUGfyvcbhwf-KOYfEKaEgHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3" class="rounded-lg shadow-2xl reveal" alt="Profile">
+            <div class="reveal delay-200">
+                <h2 class="text-3xl font-bold mb-4">À propos de moi</h2>
+                <p class="text-slate-400 mb-6 leading-relaxed">Étudiant en génie informatique spécialisé en front-end et cybersécurité. Je conçois des interfaces modernes, fluides et sécurisées.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-card p-4 rounded-lg border border-slate-700"><i class="fas fa-code text-primary text-2xl mb-2"></i><h4 class="font-bold">Code Propre</h4></div>
+                    <div class="bg-card p-4 rounded-lg border border-slate-700"><i class="fas fa-rocket text-secondary text-2xl mb-2"></i><h4 class="font-bold">Performance</h4></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="formation" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16">
+            <div class="reveal">
+                <h2 class="text-3xl font-bold mb-8 flex items-center"><i class="fas fa-graduation-cap text-primary mr-3"></i> Formation</h2>
+                <div class="border-l-2 border-slate-700 ml-3 space-y-8" id="edu-container"></div>
+            </div>
+            <div class="reveal delay-200">
+                <h2 class="text-3xl font-bold mb-8 flex items-center"><i class="fas fa-briefcase text-secondary mr-3"></i> Expériences</h2>
+                <div class="border-l-2 border-slate-700 ml-3 space-y-8" id="exp-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certification" class="py-20 bg-darker">
+        <div class="max-w-4xl mx-auto px-4 text-center reveal">
+            <h2 class="text-3xl font-bold mb-8">Certifications</h2>
+            <div class="flex flex-col items-center gap-4" id="cert-container"></div>
+        </div>
+    </section>
+
+    <section id="projets" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 reveal">Projets Récents</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-darker">
+        <div class="max-w-3xl mx-auto px-4 bg-card p-8 rounded-2xl border border-slate-700 reveal">
+            <h2 class="text-3xl font-bold mb-8 text-center">Contactez-moi</h2>
+            <form id="contact-form" class="space-y-4">
+                <input type="text" placeholder="Nom" class="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg outline-none focus:border-primary" required>
+                <input type="email" placeholder="Email" class="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg outline-none focus:border-primary" required>
+                <textarea rows="4" placeholder="Message" class="w-full p-3 bg-slate-900 border border-slate-700 rounded-lg outline-none focus:border-primary" required></textarea>
+                <button class="w-full bg-primary py-3 rounded-lg font-bold hover:bg-cyan-600 transition-all">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="toast" class="fixed bottom-10 right-10 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl translate-y-20 opacity-0 transition-all duration-300">Message envoyé !</div>
+
+    <footer class="bg-darker border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4">&lt;Dev/&gt;</h3>
+                    <p class="text-slate-400 text-sm">Développeur Frontend passionné par la création d'expériences web modernes et performantes.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Liens Rapides</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li><a href="#accueil" class="hover:text-primary transition-colors">Accueil</a></li>
+                        <li><a href="#apropos" class="hover:text-primary transition-colors">À propos</a></li>
+                        <li><a href="#formation" class="hover:text-primary transition-colors">Formation</a></li>
+                        <li><a href="#projets" class="hover:text-primary transition-colors">Projets</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Réseaux Sociaux</h4>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/repos" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mouhamadou-kane-aa89a635a/" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/MomoKn22" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400 text-sm">
+                <p>&copy; ©2026 Mouhamadou Kane. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html> 
