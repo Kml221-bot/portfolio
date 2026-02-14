@@ -21,8 +21,8 @@ const certs = [
 
 // Mes projets
 const projects = [
-    { title: "Gestion Banquaire", desc: "Plateforme de gestion pour entreprises.", tags: ["JS", "Swing"], img: "https://i.postimg.cc/fk482kjW/image.png" },
-    { title: "Site web du club informatique", desc: "Site web responsive pour le club informatique de UNIPRO.", tags: ["HTML", "TAILWIND-CSS", "Node.js", "TS"], img: "https://i.postimg.cc/FFJ5ZSh0/image.png" },
+    { title: "Gestion Banquaire", desc: "Plateforme de gestion pour entreprises.", tags: ["JS", "Swing"], img: "https://i.postimg.cc/fk482kjW/image.png", link: ""},
+    { title: "Site web du club informatique", desc: "Site web responsive pour le club informatique de UNIPRO.", tags: ["HTML", "TAILWIND-CSS", "Node.js", "TS"], img: "https://i.postimg.cc/FFJ5ZSh0/image.png", link: "https://kml221-bot.github.io/Unipro/"},
     { title: "Site streaming", desc: "Système de Recommandation de Films.", tags: ["Python"], img: "https://i.postimg.cc/sXqfVnQJ/OIP.webp" }
 ];
 
@@ -113,9 +113,9 @@ for(let i=0; i<60; i++) {
     });
 }
 
-/**
- * Fonction d'animation qui crée l'effet de particules connectées
- * S'exécute en boucle via requestAnimationFrame
+/*
+Fonction d'animation qui crée l'effet de particules connectées
+S'exécute en boucle via requestAnimationFrame
  */
 const animate = () => {
     // Effacer le canvas à chaque frame
