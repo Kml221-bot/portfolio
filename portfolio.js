@@ -21,9 +21,9 @@ const certs = [
 
 // Mes projets
 const projects = [
-    { title: "Gestion Banquaire", desc: "Plateforme de gestion pour entreprises.", tags: ["JS", "Swing"], img: "https://i.postimg.cc/fk482kjW/image.png", link: ""},
-    { title: "Site web du club informatique", desc: "Site web responsive pour le club informatique de UNIPRO.", tags: ["HTML", "TAILWIND-CSS", "Node.js", "TS"], img: "https://i.postimg.cc/FFJ5ZSh0/image.png", link: "https://kml221-bot.github.io/Unipro/"},
-    { title: "Site streaming", desc: "Système de Recommandation de Films.", tags: ["Python"], img: "https://i.postimg.cc/sXqfVnQJ/OIP.webp" }
+    { title: "Gestion Banquaire", desc: "Plateforme de gestion pour entreprises.", tags: ["JS", "Swing"], img: "https://i.postimg.cc/fk482kjW/image.png", link: "https://github.com/Kml221-bot/java" }, 
+    { title: "Site web du club informatique", desc: "Site web responsive pour le club informatique de UNIPRO.", tags: ["HTML", "TAILWIND-CSS", "Node.js", "TS"], img: "https://i.postimg.cc/FFJ5ZSh0/image.png", link: "https://kml221-bot.github.io/Unipro/" },
+    { title: "Site immobilier", desc: "Un site immobilier statique.", tags: ["HTML", "CSS"], img: "https://i.postimg.cc/dtVL7NxG/Whats-App-Image-2026-02-14-at-12-28-40.jpg", link: "https://kml221-bot.github.io/site22/" }
 ];
 
 /**
@@ -52,16 +52,42 @@ renderTimeline(exp, 'exp-container', 'secondary');
 document.getElementById('cert-container').innerHTML = certs.map(c => `
     <a href="${c.url}" target="_blank" class="w-full md:w-2/3 px-6 py-4 border-2 border-${c.color} text-${c.color} rounded-lg font-semibold hover:bg-${c.color} hover:text-white transition-all"><i class="fas fa-award mr-2"></i> ${c.title}</a>`).join('');
 
-// Affichage des projets
-document.getElementById('projects-container').innerHTML = projects.map(p => `
-    <article class="bg-card rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all reveal group">
-        <img src="${p.img}" class="w-full h-48 object-cover">
+// Affichage des projets et overplay opacité 0 qui devient 100 au hover avec un bouton pour voir le projet
+document.getElementById('projects-container').innerHTML =
+projects.map(p => `
+    <article class="relative bg-card rounded-xl overflow-hidden shadow-lg transition-all group">
+
+        <div class="relative">
+            <img src="${p.img}" class="w-full h-48 object-cover">
+
+            <div class="absolute inset-0 bg-black/60 opacity-0 
+                        group-hover:opacity-100 
+                        transition-all duration-300 
+                        flex items-center justify-center">
+
+                <a href="${p.link}" target="_blank"
+                   class="bg-primary text-white px-5 py-2 rounded-full 
+                          transform scale-90 group-hover:scale-100 
+                          transition-all">
+                    Voir le projet
+                </a>
+
+            </div>
+        </div>
+
         <div class="p-6">
             <h3 class="text-xl font-bold mb-2">${p.title}</h3>
             <p class="text-slate-400 text-sm mb-4">${p.desc}</p>
-            <div class="flex gap-2">${p.tags.map(t => `<span class="px-2 py-1 text-xs bg-slate-700 rounded-full">${t}</span>`).join('')}</div>
+
+            <div class="flex gap-2 flex-wrap">
+                ${p.tags.map(t =>
+                    `<span class="px-2 py-1 text-xs bg-slate-700 rounded-full">${t}</span>`
+                ).join('')}
+            </div>
         </div>
-    </article>`).join('');
+
+    </article>
+`).join('');
 
 // Gestion du menu mobile 
 document.getElementById('mobile-menu-btn').onclick = () => document.getElementById('mobile-menu').classList.toggle('hidden');
