@@ -16,7 +16,7 @@ const certs = [
     { title: "Certification Hack and fix", url: "https://academy.hackandfix.com/certificate-page/?user=11920&course=54789", color: "primary" },
     { title: "Mon certificat de redteamleaders", url: "https://courses.redteamleaders.com/exam-completion/7d83475c5da02ab0", color: "secondary" },
     { title: "Mon autre certificat de redteamleaders", url: "https://courses.redteamleaders.com/exam-completion/f8f0c39044f09fb2", color: "secondary" },
-    { title: "Mon autre certificat de hack and fix", url: "https://academy.hackandfix.com/certificate-page/?user=11920&course=53700", color: "secondary" }
+    { title: "Mon autre certificat de hack and fix", url: "https://academy.hackandfix.com/certificate-page/?user=11920&course=53700", color: "primary" }
 ];
 
 // Mes projets
